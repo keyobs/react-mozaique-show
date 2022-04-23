@@ -20,6 +20,7 @@
   "homepage": "https://github.com/keyobs/react-mozaique-show#readme",
   "dependencies": {
     "react": "^18.0.0",
+    "react-css-modules": "^4.7.11",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "style-loader": "^3.3.1",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "webpack": "^5.71.0",
