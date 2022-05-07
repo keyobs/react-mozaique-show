@@ -1,4 +1,6 @@
-export const spaceships = [
+import { ISpaceships } from "../interfaces/interfaceSpaceships";
+
+export const spaceships: ISpaceships[] = [
     {
       id: 52789,
       model: "Queen Revenge",
@@ -19,7 +21,6 @@ export const spaceships = [
         captain: "Maroon",
         mecha: "Five"
       },
-      lastStop: 'BR12' 
     },
     {
       id: 23654,
