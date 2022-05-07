@@ -23,13 +23,25 @@ const Card = (props: { spaceship: ISpaceships }) => {
   return (
     <div className='flipCard'>
       <div className='flipCardInner'>
-        <div className='flipCardFront'>
-          <div>{spaceship.name}</div>
-          {spaceship.model}
-        </div>
-
-        <div className='flipCardBack'></div>
+        <FrontCard spaceship={spaceship} />
+        <BackCard spaceship={spaceship} />
       </div>
     </div>
   );
+};
+
+const FrontCard = (props: { spaceship: ISpaceships }) => {
+  const { spaceship } = props;
+
+  return (
+    <div className='flipCardFront'>
+      <div>{spaceship.name}</div>
+      {spaceship.model}
+    </div>
+  );
+};
+
+const BackCard = (props: { spaceship: ISpaceships }) => {
+  const { spaceship } = props;
+  return <div className='flipCardBack'>crew</div>;
 };
