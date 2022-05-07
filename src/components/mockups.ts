@@ -3,7 +3,8 @@ import { ISpaceships } from "../interfaces/interfaceSpaceships";
 export const spaceships: ISpaceships[] = [
     {
       id: 52789,
-      model: "Queen Revenge",
+      model: 'classic',
+      name: "Queen Revenge",
       lightspeed: true,
       fuel: "nuclear",
       crew: {
@@ -14,7 +15,8 @@ export const spaceships: ISpaceships[] = [
     },
     {
       id: 12456,
-      model: "La Dama Negra",
+      model: 'super',
+      name: "La Dama Negra",
       lightspeed: true,
       fuel: "corn",
       crew: {
@@ -24,7 +26,8 @@ export const spaceships: ISpaceships[] = [
     },
     {
       id: 23654,
-      model: "Freelancer",
+      model: 'integral',
+      name: "Freelancer",
       lightspeed: true,
       fuel: "nuclear",
       crew: {
@@ -34,7 +37,8 @@ export const spaceships: ISpaceships[] = [
     },
     {
       id: 78963,
-      model: "El Impoluto",
+      model: 'special',
+      name: "El Impoluto",
       lightspeed: false,
       fuel: "nuclear",
       crew: {
@@ -45,7 +49,8 @@ export const spaceships: ISpaceships[] = [
     },
     {
         id: 41258,
-        model: "Rewards",
+        model: 'special',
+        name: "Rewards",
         lightspeed: true,
         fuel: "water",
         crew: {

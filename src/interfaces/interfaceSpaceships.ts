@@ -1,6 +1,7 @@
 export interface ISpaceships {
     id: number,
-    model: string,
+    model:'classic' | 'super' | 'special' | 'integral'
+    name: string,
     lightspeed: boolean,
     fuel: 'nuclear' | 'corn' |'water',
     crew: TCrew
