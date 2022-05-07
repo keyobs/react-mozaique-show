@@ -8,9 +8,26 @@ const Mozaique = () => {
 
 return (
   <div className='mozaiqueContainer'>
-    I am Alive
+    <Card />
   </div>
   );
 }
 
 export default Mozaique;
+
+
+
+
+const Card = () => {
+
+  return (
+      <div className='flipCard'>
+          <div className='flipCardInner'>
+
+              <div className='flipCardFront'>
+              </div>
+          
+          </div>
+      </div>
+  );
+};
