@@ -1,6 +1,6 @@
 import './styles/mozaique.css';
 
-import { mockups } from "./mockups";
+import { spaceships } from "./mockups";
 
 
 
