@@ -1,6 +1,7 @@
 import './styles/mozaique.css';
 
-import { spaceships } from "./mockups";
+import { spaceships } from './mockups';
+import {ISpaceships} from '../interfaces/interfaceSpaceships';
 
 
 
@@ -8,7 +9,9 @@ const Mozaique = () => {
 
 return (
   <div className='mozaiqueContainer'>
-    <Card />
+    {spaceships.map(spaceship => (
+      <Card spaceship={spaceship}/>
+    ))}
   </div>
   );
 }
@@ -18,7 +21,8 @@ export default Mozaique;
 
 
 
-const Card = () => {
+const Card = (props: {spaceship: ISpaceships}) => {
+  const {spaceship} = props;
 
   return (
       <div className='flipCard'>
