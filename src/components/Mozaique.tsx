@@ -26,6 +26,9 @@ const Card = () => {
 
               <div className='flipCardFront'>
               </div>
+            
+              <div className='flipCardBack'>
+              </div>
           
           </div>
       </div>
