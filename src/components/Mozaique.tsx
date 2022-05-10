@@ -7,7 +7,7 @@ import {spaceships} from './mockups';
 
 const Mozaique = () => {
   const numberOfCards = spaceships.length;
-  const newCardToFlip = getRandomInteger(0, numberOfCards);
+  const newCardToFlip = getRandomInteger(0, numberOfCards - 1);
 
   const [cardToFlip, setCardToFlip] = useState<number | undefined>(undefined);
   const [isBreakOn, setIsBreakOn] = useState<boolean>(false);
