@@ -65,8 +65,6 @@ const Card = (props: {spaceship: ISpaceships; isFlipped: boolean}) => {
   const frontRotateY = `rotateY(${isFlipped ? 180 : 0}deg)`;
   const backRotateY = `rotateY(${isFlipped ? 0 : -180}deg)`;
 
-
-
   const styles: any = {
     container: {
       width: 220,
@@ -108,64 +106,20 @@ const Card = (props: {spaceship: ISpaceships; isFlipped: boolean}) => {
     },
   };
 
-
-
-
-
-
   return (
-    <div style={styles.container}>
-      <div style={styles.inner}>
-        {/*  {isFlipped ? (
-          <BackCard spaceship={spaceship} styles={styles} />
-        ) : (
-          <FrontCard spaceship={spaceship} styles={styles} />
-        )} */}
+    <div style={styles.container} >
+      <div style={styles.inner} >
 
         <div style={styles.front}>
           <div>{spaceship.name}</div>
           {spaceship.model}
         </div>
-        <div style={styles.back}>crew</div>
 
+        <div style={styles.back}>
+          crew
+        </div>
 
       </div>
     </div>
   );
 };
-
-
-
-const FrontCard = (props: {spaceship: ISpaceships, styles: any}) => {
-  const {spaceship, styles} = props;
-
-  return (<>
-    <div style={styles.front}>
-      <div>{spaceship.name}</div>
-      {spaceship.model}
-    </div>
-    <div style={styles.back}>crew</div>
-  </>
-  );
-};
-
-
-
-
-
-
-const BackCard = (props: {spaceship: ISpaceships, styles: any}) => {
-  const {spaceship, styles} = props;
-  return (<>
-    <div style={styles.back}>crew</div>
-    <div style={styles.front}>
-      <div>{spaceship.name}</div>
-      {spaceship.model}
-    </div>
-  </>
-  );
-};
-
-
-
-
