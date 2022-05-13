@@ -6,7 +6,11 @@ import { ISpaceships } from '../interfaces/interfaceSpaceships';
 import { spaceships } from './mockups';
 
 const Mozaique = () => {
+  const numberOfCards = spaceships.length;
+  const newCardToFlip = getRandomInteger(0, numberOfCards - 1);
+
   const [cardToFlip, setCardToFlip] = useState<number | undefined>(undefined);
+  const [isBreakOn, setIsBreakOn] = useState<boolean | undefined>(undefined);
 
   function getRandomInteger(min: number, max: number) {
     min = Math.ceil(min);
@@ -14,17 +18,24 @@ const Mozaique = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function randomCardToFlip(list: any[]) {
-    const numberOfCards = list.length;
-    const newCardToFlip = getRandomInteger(0, numberOfCards);
+  function randomCardToFlip() {
     setCardToFlip(newCardToFlip);
+    setIsBreakOn(!isBreakOn);
+  }
+
+  function putOnBreak() {
+    setIsBreakOn(!isBreakOn);
+    setCardToFlip(undefined);
   }
 
   useEffect(() => {
-    setInterval(() => {
-      randomCardToFlip(spaceships);
-    }, 3500);
-  }, []);
+    const timer = isBreakOn
+      ? setTimeout(randomCardToFlip, 1500)
+      : setTimeout(putOnBreak, 3500);
+    return () => {
+      return clearTimeout(timer);
+    };
+  }, [isBreakOn]);
 
   return (
     <div className='mozaiqueContainer'>
