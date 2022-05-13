@@ -46,8 +46,13 @@ export default Mozaique;
 const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
   const { spaceship, isFlipped } = props;
 
-  const frontRotateY = `rotateY(${isFlipped ? 180 : 0}deg)`;
-  const backRotateY = `rotateY(${isFlipped ? 0 : -180}deg)`;
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
+
+  const frontRotateY = `rotateY(${isFlipped || isHovered ? 180 : 0}deg)`;
+  const backRotateY = `rotateY(${isFlipped || isHovered ? 0 : -180}deg)`;
 
   const styles: Record<string, CSSProperties> = {
     container: {
@@ -103,7 +108,12 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
 
   return (
     <div id='container' style={styles.container}>
-      <div id='inner' style={styles.inner}>
+      <div
+        id='inner'
+        style={styles.inner}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         <div id='frontCard' style={styles.front}>
           <div>{spaceship.name}</div>
           <div>{spaceship.model}</div>
