@@ -49,28 +49,13 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
   return (
     <div className='flipCard'>
       <div className='flipCardInner'>
-        {isFlipped ? (
-          <BackCard spaceship={spaceship} />
-        ) : (
-          <FrontCard spaceship={spaceship} />
-        )}
+        <div id='frontCard'>
+          <div>{spaceship.name}</div>
+          <div>{spaceship.model}</div>
+        </div>
+
+        <div id='backCard'>crew</div>
       </div>
     </div>
   );
-};
-
-const FrontCard = (props: { spaceship: ISpaceships }) => {
-  const { spaceship } = props;
-
-  return (
-    <div className='flipCardFront'>
-      <div>{spaceship.name}</div>
-      {spaceship.model}
-    </div>
-  );
-};
-
-const BackCard = (props: { spaceship: ISpaceships }) => {
-  const { spaceship } = props;
-  return <div className='flipCardBack'>crew</div>;
 };
