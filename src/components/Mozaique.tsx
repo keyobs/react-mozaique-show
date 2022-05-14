@@ -127,8 +127,6 @@ const FrontCard = () => {
       width: 220,
       height: 220,
       borderRadius: 10,
-      margin: 10,
-      border: '1px solid white',
       backgroundColor: '#009ddd',
       boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
     },
@@ -147,7 +145,6 @@ const BackCard = () => {
     container: {
       width: 'calc(220px - 40px)',
       height: 'calc(220px - 40px)',
-      margin: 10,
       padding: 20,
       borderRadius: 10,
       display: 'flex',
