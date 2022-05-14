@@ -1,11 +1,17 @@
 import './styles/mozaique.css';
 
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState, ReactElement } from 'react';
 
 import { ISpaceships } from '../interfaces/interfaceSpaceships';
 import { spaceships } from './mockups';
 
-const Mozaique = () => {
+interface MozaiqueProps {
+  frontElement: ReactElement | Element;
+  backElement: ReactElement | Element;
+}
+
+const Mozaique = (props: MozaiqueProps) => {
+  const { frontElement, backElement } = props;
   const numberOfCards = spaceships.length;
   const newCardToFlip = getRandomInteger(0, numberOfCards - 1);
 
@@ -43,8 +49,9 @@ const Mozaique = () => {
         {spaceships.map((spaceship, index) => (
           <Card
             key={spaceship.id}
-            spaceship={spaceship}
             isFlipped={index === cardToFlip}
+            frontElement={frontElement}
+            backElement={backElement}
           />
         ))}
       </div>
@@ -54,8 +61,12 @@ const Mozaique = () => {
 
 export default Mozaique;
 
-const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
-  const { spaceship, isFlipped } = props;
+const Card = (props: {
+  frontElement: ReactElement | Element;
+  backElement: ReactElement | Element;
+  isFlipped: boolean;
+}) => {
+  const { isFlipped, frontElement, backElement } = props;
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const onMouseEnter = () => setIsHovered(true);
@@ -110,55 +121,13 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
         onMouseLeave={onMouseLeave}
       >
         <div id='frontCard' style={styles.front}>
-          <FrontCard />
+          {frontElement}
         </div>
 
         <div id='backCard' style={styles.back}>
-          <BackCard />
+          {backElement}
         </div>
       </div>
-    </div>
-  );
-};
-
-const FrontCard = () => {
-  const styles: Record<string, CSSProperties> = {
-    container: {
-      width: 220,
-      height: 220,
-      borderRadius: 10,
-      backgroundColor: '#009ddd',
-      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
-    },
-  };
-
-  return (
-    <div style={styles.container}>
-      <div>Front Card</div>
-      <div>bim</div>
-    </div>
-  );
-};
-
-const BackCard = () => {
-  const styles: Record<string, CSSProperties> = {
-    container: {
-      width: 'calc(220px - 40px)',
-      height: 'calc(220px - 40px)',
-      padding: 20,
-      borderRadius: 10,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      backgroundColor: '#02b6fe',
-      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
-    },
-  };
-
-  return (
-    <div style={styles.container}>
-      <div>Back Card</div>
-      <div>hop hop</div>
     </div>
   );
 };
