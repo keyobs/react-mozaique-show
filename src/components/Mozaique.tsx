@@ -2,17 +2,14 @@ import './styles/mozaique.css';
 
 import { CSSProperties, useEffect, useState, ReactElement } from 'react';
 
-import { ISpaceships } from '../interfaces/interfaceSpaceships';
-import { spaceships } from './mockups';
-
 interface MozaiqueProps {
   frontElement: ReactElement | Element;
   backElement: ReactElement | Element;
+  numberOfCards: number;
 }
 
 const Mozaique = (props: MozaiqueProps) => {
-  const { frontElement, backElement } = props;
-  const numberOfCards = spaceships.length;
+  const { frontElement, backElement, numberOfCards } = props;
   const newCardToFlip = getRandomInteger(0, numberOfCards - 1);
 
   const [cardToFlip, setCardToFlip] = useState<number | undefined>(undefined);
@@ -46,9 +43,9 @@ const Mozaique = (props: MozaiqueProps) => {
   return (
     <div className='mozaiqueContainer'>
       <div className='cardsContainer'>
-        {spaceships.map((spaceship, index) => (
+        {[...Array(numberOfCards).keys()].map((el, index) => (
           <Card
-            key={spaceship.id}
+            key={index}
             isFlipped={index === cardToFlip}
             frontElement={frontElement}
             backElement={backElement}
