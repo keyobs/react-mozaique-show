@@ -125,14 +125,31 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
         onMouseLeave={onMouseLeave}
       >
         <div id='frontCard' style={styles.front}>
-          <div>{spaceship.name}</div>
-          <div>{spaceship.model}</div>
+          <FrontCard />
         </div>
 
         <div id='backCard' style={styles.back}>
-          crew
+          <BackCard />
         </div>
       </div>
     </div>
+  );
+};
+
+const FrontCard = () => {
+  return (
+    <>
+      <div>Front Card</div>
+      <div>bim</div>
+    </>
+  );
+};
+
+const BackCard = () => {
+  return (
+    <>
+      <div>Back Card</div>
+      <div>hop hop</div>
+    </>
   );
 };
