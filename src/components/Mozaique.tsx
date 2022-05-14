@@ -66,8 +66,6 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
 
   const styles: Record<string, CSSProperties> = {
     container: {
-      width: 'auto',
-      height: 'auto',
       backgroundColor: 'transparent',
       perspective: 1000,
     },
@@ -77,32 +75,24 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
       position: 'relative',
     },
     front: {
-      width: '100%',
       height: '100%',
-      borderRadius: 10,
-      backfaceVisibility: 'hidden',
-      WebkitBackfaceVisibility: 'hidden',
+      width: '100%',
       left: '0',
       top: '0',
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
       position: isFlipped ? 'absolute' : 'relative',
       transformStyle: 'preserve-3d',
       transform: frontRotateY,
       transition: '0.8s',
     },
     back: {
-      width: 'calc(100% - 40px)',
-      height: 'calc(100% - 40px)',
-      padding: 20,
-      borderRadius: 10,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      backgroundColor: '#02b6fe',
-      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
-      backfaceVisibility: 'hidden',
-      WebkitBackfaceVisibility: 'hidden',
+      height: '100%',
+      width: '100%',
       left: '0',
       top: '0',
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
       position: isFlipped ? 'relative' : 'absolute',
       //position: 'absolute',
       transformStyle: 'preserve-3d',
@@ -132,15 +122,15 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
 };
 
 const FrontCard = () => {
-  const styles = {
+  const styles: Record<string, CSSProperties> = {
     container: {
       width: 220,
       height: 220,
-      backgroundColor: '#009ddd',
-      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
-      border: '1px solid white',
       borderRadius: 10,
       margin: 10,
+      border: '1px solid white',
+      backgroundColor: '#009ddd',
+      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
     },
   };
 
@@ -153,10 +143,25 @@ const FrontCard = () => {
 };
 
 const BackCard = () => {
+  const styles: Record<string, CSSProperties> = {
+    container: {
+      width: 'calc(220px - 40px)',
+      height: 'calc(220px - 40px)',
+      margin: 10,
+      padding: 20,
+      borderRadius: 10,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      backgroundColor: '#02b6fe',
+      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
+    },
+  };
+
   return (
-    <>
+    <div style={styles.container}>
       <div>Back Card</div>
       <div>hop hop</div>
-    </>
+    </div>
   );
 };
