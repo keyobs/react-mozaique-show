@@ -66,12 +66,9 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
 
   const styles: Record<string, CSSProperties> = {
     container: {
-      width: 220,
-      height: 220,
+      width: 'auto',
+      height: 'auto',
       backgroundColor: 'transparent',
-      border: '1px solid white',
-      borderRadius: 10,
-      margin: 10,
       perspective: 1000,
     },
     inner: {
@@ -83,8 +80,6 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
       width: '100%',
       height: '100%',
       borderRadius: 10,
-      backgroundColor: '#009ddd',
-      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
       backfaceVisibility: 'hidden',
       WebkitBackfaceVisibility: 'hidden',
       left: '0',
@@ -137,11 +132,23 @@ const Card = (props: { spaceship: ISpaceships; isFlipped: boolean }) => {
 };
 
 const FrontCard = () => {
+  const styles = {
+    container: {
+      width: 220,
+      height: 220,
+      backgroundColor: '#009ddd',
+      boxShadow: 'rgb(0 0 0 / 13%) 0px 4px 31px',
+      border: '1px solid white',
+      borderRadius: 10,
+      margin: 10,
+    },
+  };
+
   return (
-    <>
+    <div style={styles.container}>
       <div>Front Card</div>
       <div>bim</div>
-    </>
+    </div>
   );
 };
 
